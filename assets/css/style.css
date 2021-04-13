@@ -805,6 +805,10 @@ a:hover {
   text-align: center;
 }
 
+.service-box:hover{
+  background-color: rgb(224, 224, 224);
+}
+
 .service-box:hover .ico-circle {
   transition: all 500ms ease;
   color: #fff;
@@ -1378,4 +1382,38 @@ footer .credits {
 
 footer .credits a {
   color: #fff;
+}
+
+
+#sha-1{
+  text-shadow: 2px -2px 5px orange ;
+}
+
+#wel-head:hover{
+  animation: bigAnime;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes bigAnime{
+  50%{transform: scale(1.1,1.1);}
+}
+
+#font-fam{
+  font-family: mv boli;
+  font-weight: 550;
+}
+
+#sha-2{
+  text-shadow: 2px 2px 2px yellow,3px -3px 4px orange;
+}
+
+#more-inf{
+  font-family: serif;
+  font-size: 20px;
+
+}
+
+#main-modified{
+  box-shadow: 5px 5px 10px gray;
 }
