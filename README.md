@@ -2,7 +2,5 @@
 
 Test Deployment: https://hustle24-7.github.io/Hustle_Site.github.io/
 
-Spreadsheet: https://docs.google.com/spreadsheets/d/1XBHlX1866PnHvKykhmJZRzi-4oQtfuq1yVQrU1VQeT4/edit#gid=0
-
 We are working in Agile - Scrum.  
 Check https://bit.ly/3g1jliU
