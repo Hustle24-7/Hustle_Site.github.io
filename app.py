@@ -25,6 +25,7 @@ Sheet = client.open_by_key(os.environ.get("KEY")).sheet1
 # --------------------------------------------------------------------------------------
 def check_validity(username, password):
     try:
+        time.sleep(2)
         cell = Sheet.find(username)
         if password == Sheet.cell(cell.row, cell.col + 1).value:
             return True
@@ -58,7 +59,9 @@ def logout():
 def login_process():
     username = request.form.get("username")
     password = request.form.get("password")
+    time.sleep(2)
     validity = check_validity(username, password)
+    time.sleep(2)
     if validity:
         session['logged_in'] = True
         return login()
