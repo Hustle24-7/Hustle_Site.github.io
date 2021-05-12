@@ -1,9 +1,6 @@
 from flask import render_template
 from flask import Flask, flash, redirect, request, session, abort
 from oauth2client.service_account import ServiceAccountCredentials
-from gspread.exceptions import APIError
-import time
-import platform
 import gspread
 import os
 import smtplib
@@ -17,15 +14,14 @@ SCOPE = ["https://spreadsheets.google.com/feeds",
          "https://www.googleapis.com/auth/spreadsheets",
          "https://www.googleapis.com/auth/drive.file",
          "https://www.googleapis.com/auth/drive"]
-CREDS = ServiceAccountCredentials.from_json_keyfile_name('static/cred/cred.json', SCOPE)
+CREDS = ServiceAccountCredentials.from_json_keyfile_name('static/cred.json', SCOPE)
 client = gspread.authorize(CREDS)
-Sheet = client.open_by_key(os.environ.get("KEY")).sheet1
+Sheet = client.open_by_key('1pzCWLj0Azskd8LVggQOrvsKbM-eKN1P3u6wLpZiEkwY').sheet1
 
 
 # --------------------------------------------------------------------------------------
 def check_validity(username, password):
     try:
-        time.sleep(2)
         cell = Sheet.find(username)
         if password == Sheet.cell(cell.row, cell.col + 1).value:
             return True
@@ -37,7 +33,7 @@ def check_validity(username, password):
 
 
 @app.route('/')
-def index():
+def home():
     return render_template('index.html')
 
 
@@ -59,9 +55,7 @@ def logout():
 def login_process():
     username = request.form.get("username")
     password = request.form.get("password")
-    time.sleep(2)
     validity = check_validity(username, password)
-    time.sleep(2)
     if validity:
         session['logged_in'] = True
         return login()
@@ -77,6 +71,7 @@ def portal():
 
 @app.route('/contact', methods=['POST'])
 def contact():
+
     name = request.form.get("name")
     email = request.form.get("email")
     subject = request.form.get("subject")
@@ -93,11 +88,11 @@ Message:
     message = 'Subject: {}\n\n{}'.format(subject, body)
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.starttls()
-    server.login(os.environ.get('EMAIL'),os.environ.get('PASSWORD'))
+    # server.login(os.environ.get('EMAIL'),os.environ.get('PASSWORD'))
+    server.login('Hustle247.Notify@gmail.com','Hustlers2021')
     server.sendmail('Hustle247.Notify@gmail.com', 'hustle247.clan@gmail.com', message)
-    return redirect('/')
+    return render_template('index.html')
 
 
 if __name__ == '__main__':
-    app.debug = True
     app.run()
