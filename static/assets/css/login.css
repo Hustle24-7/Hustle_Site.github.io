@@ -1,5 +1,6 @@
 /* Fonts Form Google Font ::- https://fonts.google.com/  -:: */
 @import url('https://fonts.googleapis.com/css?family=Abel|Abril+Fatface|Alegreya|Arima+Madurai|Dancing+Script|Dosis|Merriweather|Oleo+Script|Overlock|PT+Serif|Pacifico|Playball|Playfair+Display|Share|Unica+One|Vibur');
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
 /* End Fonts */
 /* Start Global rules */
 * {
@@ -18,7 +19,7 @@ background-attachment: fixed;
 
     font-family: 'Vibur', cursive;
 /*   the main font */
-    font-family: 'Abel', sans-serif;
+    font-family: 'Staatliches', cursive;
 opacity: .95;
 /* background-image: linear-gradient(to top, #d9afd9 0%, #97d9e1 100%); */
 }
@@ -67,7 +68,7 @@ header {
 header h2 {
     font-size: 250%;
     font-family: 'Playfair Display', serif;
-    color: #3e403f;
+    color: #00dbde;
 }
 /*  A welcome message or an explanation of the login form */
 header p {letter-spacing: 0.05em;}
